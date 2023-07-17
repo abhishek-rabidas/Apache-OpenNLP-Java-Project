@@ -1,5 +1,6 @@
 package com.github.viiiraj07.NLP.api;
 
+import com.github.viiiraj07.NLP.engine.NamingEngine;
 import com.github.viiiraj07.NLP.engine.TokenizerEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +16,17 @@ public class Controller {
     @Autowired
     private TokenizerEngine tokenizerEngine;
 
+    @Autowired
+    private NamingEngine namingEngine;
+
     @PostMapping("/tokenize")
     public ResponseEntity<?> TokenizeString(@RequestParam("text") String text) {
-
         return ResponseEntity.ok(tokenizerEngine.stringTokenize(text));
+    }
+
+    @PostMapping("/getNames")
+    public ResponseEntity<?> getNamedEntities(@RequestParam("text") String text) {
+        return ResponseEntity.ok(namingEngine.getNamedPersonEntities(text));
     }
 
 

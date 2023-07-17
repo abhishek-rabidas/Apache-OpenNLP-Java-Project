@@ -19,10 +19,11 @@ public class NamingEngine {
         try (InputStream modelIn = new FileInputStream("src/main/resources/models/en-ner-person.bin")) {
             TokenNameFinderModel tokenNameFinderModel = new TokenNameFinderModel(modelIn);
             NameFinderME nameFinderME = new NameFinderME(tokenNameFinderModel);
-            Span[] spans = nameFinderME.find(tokenizerEngine.stringTokenize(text));
+            String[] textTokens = tokenizerEngine.stringTokenize(text);
+            Span[] spans = nameFinderME.find(textTokens);
             ArrayList<String> names = new ArrayList<>();
             for (Span span : spans) {
-                names.add(span.toString());
+                names.add(textTokens[span.getStart()]);
             }
             return names;
         } catch (IOException e) {
