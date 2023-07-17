@@ -18,7 +18,7 @@ public class Controller {
     @PostMapping("/tokenize")
     public ResponseEntity<?> TokenizeString(@RequestParam("text") String text) {
 
-        return ResponseEntity.ok(tokenizerEngine.StringTokenize(text));
+        return ResponseEntity.ok(tokenizerEngine.stringTokenize(text));
     }
 
 
