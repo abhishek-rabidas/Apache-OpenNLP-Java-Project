@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.viiiraj07</groupId>
 	<artifactId>NLP</artifactId>
-	<version>0.0.1</version>
+	<version>1.0.0</version>
 	<name>NLP</name>
 	<description>Natural Language Processing Project with Java</description>
 	<properties>
