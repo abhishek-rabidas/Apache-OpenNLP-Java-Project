@@ -31,7 +31,7 @@ public class Controller {
 
     @PostMapping("/getLocations")
     public ResponseEntity<?> getLocations(@RequestParam("text") String text) {
-        return ResponseEntity.ok(namingEngine.getNamedPersonEntities(text));
+        return ResponseEntity.ok(namingEngine.getNamedLocationEntities(text));
     }
 
 

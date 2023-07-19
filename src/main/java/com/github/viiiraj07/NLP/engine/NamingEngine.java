@@ -31,4 +31,20 @@ public class NamingEngine {
         }
     }
 
+    public ArrayList<String> getNamedLocationEntities(String text) {
+        try (InputStream modelIn = new FileInputStream("src/main/resources/models/en-ner-location.bin")) {
+            TokenNameFinderModel tokenLocationNameFinderModel = new TokenNameFinderModel(modelIn);
+            NameFinderME nameFinderME = new NameFinderME(tokenLocationNameFinderModel);
+            String[] textTokens = tokenizerEngine.stringTokenize(text);
+            Span[] spans = nameFinderME.find(textTokens);
+            ArrayList<String> locations = new ArrayList<>();
+            for (Span span : spans) {
+                locations.add(textTokens[span.getStart()]);
+            }
+            return locations;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
