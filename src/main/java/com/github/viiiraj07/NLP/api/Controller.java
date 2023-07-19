@@ -29,5 +29,10 @@ public class Controller {
         return ResponseEntity.ok(namingEngine.getNamedPersonEntities(text));
     }
 
+    @PostMapping("/getLocations")
+    public ResponseEntity<?> getLocations(@RequestParam("text") String text) {
+        return ResponseEntity.ok(namingEngine.getNamedPersonEntities(text));
+    }
+
 
 }
