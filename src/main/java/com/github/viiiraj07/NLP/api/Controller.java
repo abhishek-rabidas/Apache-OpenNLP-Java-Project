@@ -29,6 +29,11 @@ public class Controller {
         return ResponseEntity.ok(tokenizerEngine.stringTokenize(text));
     }
 
+    /**
+     <h2>Named Entity Recognition</h2>
+     <p>The Name Finder can detect named entities and numbers in text. </p>
+     */
+
     @PostMapping("/getNames")
     public ResponseEntity<?> getNamedEntities(@RequestParam("text") String text) {
         return ResponseEntity.ok(namingEngine.getNamedPersonEntities(text));
