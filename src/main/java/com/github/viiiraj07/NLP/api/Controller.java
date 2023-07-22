@@ -25,7 +25,7 @@ public class Controller {
 
     /**
      * <h2>Tokenizer</h2>
-     * <p>The <b>OpenNLP</b> Tokenizers segment an input character sequence into tokens. Tokens are usually words, punctuation, numbers, etc.</p>
+     * <p>The <b>OpenNLP Tokenizers</b> segment an input character sequence into tokens. Tokens are usually words, punctuation, numbers, etc.</p>
      */
 
     @PostMapping("/tokenize")
@@ -51,7 +51,7 @@ public class Controller {
 
     /**
      * <h2>Language Detector</h2>
-     * <p>The Name Finder can detect named entities and numbers in text. </p>
+     * <p>The <b>OpenNLP Language Detector</b> classifies a document in ISO-639-3 languages according to the model capabilities. </p>
      */
 
     @PostMapping("/detectLanguage")
