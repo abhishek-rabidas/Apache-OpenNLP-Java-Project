@@ -19,6 +19,11 @@ public class Controller {
     @Autowired
     private NamingEngine namingEngine;
 
+    /**
+    <h2>Tokenizer</h2>
+     <p>The <b>OpenNLP</b> Tokenizers segment an input character sequence into tokens. Tokens are usually words, punctuation, numbers, etc.</p>
+     */
+
     @PostMapping("/tokenize")
     public ResponseEntity<?> TokenizeString(@RequestParam("text") String text) {
         return ResponseEntity.ok(tokenizerEngine.stringTokenize(text));
