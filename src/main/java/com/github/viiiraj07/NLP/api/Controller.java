@@ -1,5 +1,6 @@
 package com.github.viiiraj07.NLP.api;
 
+import com.github.viiiraj07.NLP.engine.LanguageDetectorEngine;
 import com.github.viiiraj07.NLP.engine.NamingEngine;
 import com.github.viiiraj07.NLP.engine.TokenizerEngine;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,12 @@ public class Controller {
     @Autowired
     private NamingEngine namingEngine;
 
+    @Autowired
+    private LanguageDetectorEngine languageDetectorEngine;
+
     /**
-    <h2>Tokenizer</h2>
-     <p>The <b>OpenNLP</b> Tokenizers segment an input character sequence into tokens. Tokens are usually words, punctuation, numbers, etc.</p>
+     * <h2>Tokenizer</h2>
+     * <p>The <b>OpenNLP</b> Tokenizers segment an input character sequence into tokens. Tokens are usually words, punctuation, numbers, etc.</p>
      */
 
     @PostMapping("/tokenize")
@@ -29,9 +33,10 @@ public class Controller {
         return ResponseEntity.ok(tokenizerEngine.stringTokenize(text));
     }
 
+
     /**
-     <h2>Named Entity Recognition</h2>
-     <p>The Name Finder can detect named entities and numbers in text. </p>
+     * <h2>Named Entity Recognition</h2>
+     * <p>The Name Finder can detect named entities and numbers in text. </p>
      */
 
     @PostMapping("/getNames")
@@ -44,5 +49,14 @@ public class Controller {
         return ResponseEntity.ok(namingEngine.getNamedLocationEntities(text));
     }
 
+    /**
+     * <h2>Language Detector</h2>
+     * <p>The Name Finder can detect named entities and numbers in text. </p>
+     */
+
+    @PostMapping("/detectLanguage")
+    public ResponseEntity<?> detectLanguage(@RequestParam("text") String text) {
+        return ResponseEntity.ok(languageDetectorEngine.detectLanguage(text));
+    }
 
 }
